@@ -5,12 +5,14 @@
 # https://www.nayuki.io/page/project-euler-solutions
 # https://github.com/nayuki/Project-Euler-solutions
 # 
+# Modified by Autodrive
+#
+# Problems: https://projecteuler.net/archives
 
 
 def compute():
-	ans = sum(x for x in range(1000) if (x % 3 == 0 or x % 5 == 0))
-	return str(ans)
+    return sum(range(3, 1000, 3) + range(5, 1000, 5))
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())
