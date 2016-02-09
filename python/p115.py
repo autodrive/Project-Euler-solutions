@@ -21,17 +21,17 @@ import itertools
 #   - Otherwise k < n, this red block is followed by a black square, then followed
 #     by anything of length n-k-1. So add ways[n-m-1] + ways[n-m-2] + ... + ways[0].
 def compute():
-	# Dynamic programming
-	M = 50
-	ways = [1]
-	for n in itertools.count(1):
-		s = ways[n - 1] + sum(ways[ : max(n - M, 0)])
-		if n >= M:
-			s += 1
-		ways.append(s)
-		if s > 1000000:
-			return str(n)
+    # Dynamic programming
+    M = 50
+    ways = [1]
+    for n in itertools.count(1):
+        s = ways[n - 1] + sum(ways[: max(n - M, 0)])
+        if n >= M:
+            s += 1
+        ways.append(s)
+        if s > 1000000:
+            return str(n)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

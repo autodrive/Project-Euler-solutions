@@ -24,23 +24,23 @@ import eulerlib
 # and suppose this set is {a, b, c}. Then when we include {p_i}^{k_i} into consideration, we double the size of the set
 # because now {a * {p_i}^{k_i}, b * {p_i}^{k_i}, c * {p_i}^{k_i}} are also unitary divisors.
 def compute():
-	LIMIT = 10**8
-	MOD = 1000000009
-	ans = 1
-	for p in eulerlib.prime_generator(LIMIT):
-		power = count_factors(LIMIT, p)
-		ans *= 1 + pow(p, power * 2, MOD)
-		ans %= MOD
-	return str(ans)
+    LIMIT = 10 ** 8
+    MOD = 1000000009
+    ans = 1
+    for p in eulerlib.prime_generator(LIMIT):
+        power = count_factors(LIMIT, p)
+        ans *= 1 + pow(p, power * 2, MOD)
+        ans %= MOD
+    return str(ans)
 
 
 # Returns the number of factors of p (prime) in factorial(n).
 def count_factors(n, p):
-	if n == 0:
-		return 0
-	else:
-		return n // p + count_factors(n // p, p)
+    if n == 0:
+        return 0
+    else:
+        return n // p + count_factors(n // p, p)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

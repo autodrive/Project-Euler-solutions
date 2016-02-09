@@ -22,20 +22,19 @@ import itertools
 # So the expected value of the index where the number becomes all 1's is
 # sum(n * pdf(n) for n = 0 to infinity).
 def compute():
-	# Computes an approximate answer using floating-point, not guaranteed to be correct.
-	# However, the Mathematica version of the solution is exact.
-	def cdf(n):
-		return (1 - 0.5**n)**32 if n >= 0 else 0.0
-	
-	ans = 0.0
-	for n in itertools.count(1):
-		p = cdf(n) - cdf(n - 1)
-		if p < 1e-20:  # Truncate the series by ignoring insignificant contributions to the sum
-			break
-		ans += n * p
-	return "{:.10f}".format(ans)
+    # Computes an approximate answer using floating-point, not guaranteed to be correct.
+    # However, the Mathematica version of the solution is exact.
+    def cdf(n):
+        return (1 - 0.5 ** n) ** 32 if n >= 0 else 0.0
 
+    ans = 0.0
+    for n in itertools.count(1):
+        p = cdf(n) - cdf(n - 1)
+        if p < 1e-20:  # Truncate the series by ignoring insignificant contributions to the sum
+            break
+        ans += n * p
+    return "{:.10f}".format(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

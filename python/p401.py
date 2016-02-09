@@ -37,22 +37,22 @@ import eulerlib
 # 
 # Useful fact: (sum k^2 for k=1 to n) = n(n + 1)(2n + 1) / 6.
 def compute():
-	LIMIT = 10**15
-	MODULUS = 10**9
-	
-	# Can be any number from 1 to LIMIT, but somewhere near sqrt(LIMIT) is preferred
-	splitcount = eulerlib.sqrt(LIMIT)
-	# Consider divisors individually up and including this number
-	splitat = LIMIT // (splitcount + 1)
-	
-	# The sum (s+1)^2 + (s+2)^2 + ... + (e-1)^2 + e^2.
-	def sum_squares(s, e):
-		return (e * (e + 1) * (e * 2 + 1) - s * (s + 1) * (s * 2 + 1)) // 6
-	
-	ans = sum((i * i * (LIMIT // i)) for i in range(1, splitat + 1))
-	ans += sum((sum_squares(LIMIT // (i + 1), LIMIT // i) * i) for i in range(1, splitcount + 1))
-	return str(ans % MODULUS)
+    LIMIT = 10 ** 15
+    MODULUS = 10 ** 9
+
+    # Can be any number from 1 to LIMIT, but somewhere near sqrt(LIMIT) is preferred
+    splitcount = eulerlib.sqrt(LIMIT)
+    # Consider divisors individually up and including this number
+    splitat = LIMIT // (splitcount + 1)
+
+    # The sum (s+1)^2 + (s+2)^2 + ... + (e-1)^2 + e^2.
+    def sum_squares(s, e):
+        return (e * (e + 1) * (e * 2 + 1) - s * (s + 1) * (s * 2 + 1)) // 6
+
+    ans = sum((i * i * (LIMIT // i)) for i in range(1, splitat + 1))
+    ans += sum((sum_squares(LIMIT // (i + 1), LIMIT // i) * i) for i in range(1, splitcount + 1))
+    return str(ans % MODULUS)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

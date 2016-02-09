@@ -34,25 +34,25 @@ import itertools
 # Therefore if we want to find an n whose solution k is such that
 # k > 1000000, then we need to have n > 1000000.
 def compute():
-	LIMIT = 10**6
-	for n in itertools.count(LIMIT):
-		if least_divisible_repunit(n) > LIMIT:
-			return str(n)
+    LIMIT = 10 ** 6
+    for n in itertools.count(LIMIT):
+        if least_divisible_repunit(n) > LIMIT:
+            return str(n)
 
 
 # Returns the smallest k such that R(k) is divisible by n.
 def least_divisible_repunit(n):
-	if n % 2 == 0 or n % 5 == 0:
-		return 0
-	k = 1
-	s = 1  # Loop invariant: Equal to R(k) mod n
-	p = 1  # Loop invariant: Equal to 10^k mod n
-	while s % n != 0:
-		k += 1
-		p = p * 10 % n
-		s = (s + p) % n
-	return k
+    if n % 2 == 0 or n % 5 == 0:
+        return 0
+    k = 1
+    s = 1  # Loop invariant: Equal to R(k) mod n
+    p = 1  # Loop invariant: Equal to 10^k mod n
+    while s % n != 0:
+        k += 1
+        p = p * 10 % n
+        s = (s + p) % n
+    return k
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

@@ -7,8 +7,9 @@
 # 
 
 import sys
+
 if sys.version_info.major == 2:
-	range = xrange  # Very important to let the inner loop terminate early
+    range = xrange  # Very important to let the inner loop terminate early
 
 
 # Let x = m, y = m - k, z = m - 2k (this is an arithmetic sequence).
@@ -23,18 +24,18 @@ if sys.version_info.major == 2:
 # we know that (m - k)(5k - m) >= m - k > m/2. So m/2 < x^2 - y^2 - z^2 < 10^6.
 # This means we search with 0 < m < 2 * 10^6.
 def compute():
-	LIMIT = 10**6
-	solutions = [0] * LIMIT
-	for m in range(1, LIMIT * 2):
-		for k in range(m // 5 + 1, (m + 1) // 2):
-			temp = (m - k) * (k * 5 - m)
-			if temp >= LIMIT:
-				break
-			solutions[temp] += 1
-	
-	ans = sum(1 for x in solutions if x == 10)
-	return str(ans)
+    LIMIT = 10 ** 6
+    solutions = [0] * LIMIT
+    for m in range(1, LIMIT * 2):
+        for k in range(m // 5 + 1, (m + 1) // 2):
+            temp = (m - k) * (k * 5 - m)
+            if temp >= LIMIT:
+                break
+            solutions[temp] += 1
+
+    ans = sum(1 for x in solutions if x == 10)
+    return str(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

@@ -6,7 +6,8 @@
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
-import importlib, time
+import importlib
+import time
 
 
 def main():

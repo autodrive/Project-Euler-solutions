@@ -41,15 +41,15 @@ import eulerlib
 # (for the number 2^16 = 65536). (In general, the largest exponent is floor(log2(limit)); in this case limit = 10^5.)
 # So we only need to test if 10^16 is a multiple of k, equivalent to testing if R(10^16) is a multiple of n.
 def compute():
-	primes = eulerlib.list_primes(100000)
-	ans = sum(p for p in primes if p == 2 or p == 5 or not has_divisible_repunit(p))
-	return str(ans)
+    primes = eulerlib.list_primes(100000)
+    ans = sum(p for p in primes if p == 2 or p == 5 or not has_divisible_repunit(p))
+    return str(ans)
 
 
 # Tests whether there exists a k such that R(10^k) is a multiple of p
 def has_divisible_repunit(p):
-	return (pow(10, 10**16, p * 9) - 1) // 9 % p == 0
+    return (pow(10, 10 ** 16, p * 9) - 1) // 9 % p == 0
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

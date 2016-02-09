@@ -6,7 +6,9 @@
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
-import eulerlib, itertools
+import itertools
+
+import eulerlib
 
 
 def compute():

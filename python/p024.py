@@ -6,18 +6,20 @@
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
-import itertools, sys
+import itertools
+import sys
+
 if sys.version_info.major == 2:
-	range = xrange
+    range = xrange
 
 
 def compute():
-	arr = list(range(10))
-	permiter = itertools.permutations(arr)
-	for i in range(999999):
-		next(permiter)
-	return "".join([str(x) for x in next(permiter)])
+    arr = list(range(10))
+    permiter = itertools.permutations(arr)
+    for i in range(999999):
+        next(permiter)
+    return "".join([str(x) for x in next(permiter)])
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

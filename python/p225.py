@@ -10,26 +10,26 @@ import itertools
 
 
 def compute():
-	found = 0
-	for i in itertools.count(1, 2):
-		if not has_tribonacci_multiple(i):
-			found += 1
-			if found == 124:
-				return str(i)
+    found = 0
+    for i in itertools.count(1, 2):
+        if not has_tribonacci_multiple(i):
+            found += 1
+            if found == 124:
+                return str(i)
 
 
 def has_tribonacci_multiple(i):
-	seen = set()
-	a, b, c = 1, 1, 1
-	while True:
-		if a % i == 0:
-			return True
-		key = (a, b, c)
-		if key in seen:
-			return False
-		seen.add(key)
-		a, b, c = b, c, (a + b + c) % i
+    seen = set()
+    a, b, c = 1, 1, 1
+    while True:
+        if a % i == 0:
+            return True
+        key = (a, b, c)
+        if key in seen:
+            return False
+        seen.add(key)
+        a, b, c = b, c, (a + b + c) % i
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

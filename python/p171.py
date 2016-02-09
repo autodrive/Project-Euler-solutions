@@ -6,7 +6,9 @@
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
-import eulerlib, itertools
+import itertools
+
+import eulerlib
 
 
 # The key insight is to use dynamic programming to build up the answer one digit at a time.
@@ -24,35 +26,36 @@ import eulerlib, itertools
 # and these two pieces of information are enough to determine the final answer.
 # (Furthermore, these can be reduced by the modulus.)
 def compute():
-	LENGTH = 20
-	BASE = 10
-	MODULUS = 10**9
-	
-	# Maximum possible squared digit sum (for 99...99)
-	MAX_SQR_DIGIT_SUM = (BASE - 1)**2 * LENGTH
-	
-	# sqsum[n][s] is the sum of all length-n numbers with a square digit sum of s, modulo MODULUS
-	# count[n][s] is the count of all length-n numbers with a square digit sum of s, modulo MODULUS
-	sqsum = []
-	count = []
-	
-	for i in range(LENGTH + 1):
-		sqsum.append([0] * (MAX_SQR_DIGIT_SUM + 1))
-		count.append([0] * (MAX_SQR_DIGIT_SUM + 1))
-		if i == 0:
-			count[0][0] = 1
-		else:
-			for j in range(BASE):
-				for k in itertools.count():
-					index = k + j**2
-					if index > MAX_SQR_DIGIT_SUM:
-						break
-					sqsum[i][index] = (sqsum[i][index] + sqsum[i - 1][k] + pow(BASE, i - 1, MODULUS) * j * count[i - 1][k]) % MODULUS
-					count[i][index] = (count[i][index] + count[i - 1][k]) % MODULUS
-	
-	ans = sum(sqsum[LENGTH][i**2] for i in range(1, eulerlib.sqrt(MAX_SQR_DIGIT_SUM)))
-	return "{:09d}".format(ans % MODULUS)
+    LENGTH = 20
+    BASE = 10
+    MODULUS = 10 ** 9
+
+    # Maximum possible squared digit sum (for 99...99)
+    MAX_SQR_DIGIT_SUM = (BASE - 1) ** 2 * LENGTH
+
+    # sqsum[n][s] is the sum of all length-n numbers with a square digit sum of s, modulo MODULUS
+    # count[n][s] is the count of all length-n numbers with a square digit sum of s, modulo MODULUS
+    sqsum = []
+    count = []
+
+    for i in range(LENGTH + 1):
+        sqsum.append([0] * (MAX_SQR_DIGIT_SUM + 1))
+        count.append([0] * (MAX_SQR_DIGIT_SUM + 1))
+        if i == 0:
+            count[0][0] = 1
+        else:
+            for j in range(BASE):
+                for k in itertools.count():
+                    index = k + j ** 2
+                    if index > MAX_SQR_DIGIT_SUM:
+                        break
+                    sqsum[i][index] = (sqsum[i][index] + sqsum[i - 1][k] + pow(BASE, i - 1, MODULUS) * j * count[i - 1][
+                        k]) % MODULUS
+                    count[i][index] = (count[i][index] + count[i - 1][k]) % MODULUS
+
+    ans = sum(sqsum[LENGTH][i ** 2] for i in range(1, eulerlib.sqrt(MAX_SQR_DIGIT_SUM)))
+    return "{:09d}".format(ans % MODULUS)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

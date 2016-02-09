@@ -28,9 +28,9 @@
 # In conclusion, if a is even, the maximum remainder is a(a-2);
 # otherwise a is odd, the maximum remainder is a(a-1).
 def compute():
-	ans = sum(i * (i - (2 if i % 2 == 0 else 1)) for i in range(3, 1001))
-	return str(ans)
+    ans = sum(i * (i - (2 if i % 2 == 0 else 1)) for i in range(3, 1001))
+    return str(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

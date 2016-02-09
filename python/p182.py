@@ -6,7 +6,9 @@
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
-import eulerlib, sys
+import sys
+
+import eulerlib
 
 if sys.version_info.major == 2:
     range = xrange

@@ -34,13 +34,13 @@ import eulerlib
 # 
 # (Technically, in the problem statement and this solution, "increasing" actually means "nondecreasing" and "decreasing" means "nonincreasing".)
 def compute():
-	DIGITS = 100
-	increasing = eulerlib.binomial(DIGITS + 9, 9) - 1
-	decreasing = eulerlib.binomial(DIGITS + 10, 10) - (DIGITS + 1)
-	flat = DIGITS * 9
-	ans = increasing + decreasing - flat
-	return str(ans)
+    DIGITS = 100
+    increasing = eulerlib.binomial(DIGITS + 9, 9) - 1
+    decreasing = eulerlib.binomial(DIGITS + 10, 10) - (DIGITS + 1)
+    flat = DIGITS * 9
+    ans = increasing + decreasing - flat
+    return str(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

@@ -22,13 +22,13 @@
 # 
 # We handle the rest of the testing by brute force.
 def compute():
-	ans = 0
-	for i in range(1, 10):
-		for j in range(1, 22):
-			if len(str(i**j)) == j:
-				ans += 1
-	return str(ans)
+    ans = 0
+    for i in range(1, 10):
+        for j in range(1, 22):
+            if len(str(i ** j)) == j:
+                ans += 1
+    return str(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

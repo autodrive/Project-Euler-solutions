@@ -42,12 +42,12 @@
 # Actually, that answer considers numbers in the range [0, 2^30), which is not exactly what we want.
 # According to the problem statement, we need to exclude 0 and include 2^30. But both are losing positions, so the adjustments cancel out.
 def compute():
-	a = 0
-	b = 1
-	for i in range(32):
-		a, b = b, a + b
-	return str(a)
+    a = 0
+    b = 1
+    for i in range(32):
+        a, b = b, a + b
+    return str(a)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())
