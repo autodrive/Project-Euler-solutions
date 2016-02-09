@@ -7,7 +7,7 @@
 # 
 
 
-	
+
 # How many ways can a row n units long be filled? Denote this quantity as ways[n].
 # Compute n = 0, 1, 2 manually as base cases.
 # 
@@ -19,16 +19,16 @@
 #   - Otherwise k < n, this red block is followed by a black square, then followed
 #     by anything of length n-k-1. So add ways[n-4] + ways[n-5] + ... + ways[0].
 def compute():
-	# Dynamic programming
-	LENGTH = 50
-	ways = [0] * (LENGTH + 1)
-	for n in range(len(ways)):
-		if n < 3:
-			ways[n] = 1
-		else:
-			ways[n] = ways[n - 1] + sum(ways[ : n - 3]) + 1
-	return str(ways[-1])
+    # Dynamic programming
+    LENGTH = 50
+    ways = [0] * (LENGTH + 1)
+    for n in range(len(ways)):
+        if n < 3:
+            ways[n] = 1
+        else:
+            ways[n] = ways[n - 1] + sum(ways[: n - 3]) + 1
+    return str(ways[-1])
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

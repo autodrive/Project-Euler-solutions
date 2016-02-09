@@ -10,14 +10,14 @@ import eulerlib
 
 
 def compute():
-	n = 1
-	count = 0
-	while count < 10001:
-		n += 1
-		if eulerlib.is_prime(n):
-			count += 1
-	return str(n)
+    n = 1
+    count = 0
+    while count < 10001:
+        n += 1
+        if eulerlib.is_prime(n):
+            count += 1
+    return str(n)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

@@ -8,8 +8,8 @@
 
 
 def compute():
-	LENGTH = 50
-	return str(sum(count_ways(LENGTH, i) for i in range(2, 5)))
+    LENGTH = 50
+    return str(sum(count_ways(LENGTH, i) for i in range(2, 5)))
 
 
 # How many ways can a row n units long be filled with black squares 1 unit long
@@ -24,15 +24,15 @@ def compute():
 # 
 # At the end, return ways[length]-1 to exclude the case where the row is all black squares.
 def count_ways(length, m):
-	# Dynamic programming
-	ways = [0] * (length + 1)
-	ways[0] = 1
-	for n in range(1, len(ways)):
-		ways[n] += ways[n - 1]
-		if n >= m:
-			ways[n] += ways[n - m]
-	return ways[-1] - 1
+    # Dynamic programming
+    ways = [0] * (length + 1)
+    ways[0] = 1
+    for n in range(1, len(ways)):
+        ways[n] += ways[n - 1]
+        if n >= m:
+            ways[n] += ways[n - m]
+    return ways[-1] - 1
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

@@ -7,8 +7,9 @@
 # 
 
 import sys
+
 if sys.version_info.major == 2:
-	range = xrange
+    range = xrange
 
 
 # As per the problem statement, define t(n) = 2n^2 - 1 and assume that always n > 1.
@@ -69,40 +70,40 @@ if sys.version_info.major == 2:
 #   My algorithm and proof were written with major help from this document:
 #   http://fun-math-problems.googlecode.com/svn/trunk/doc/euler/p216.tex
 def compute():
-	# Produce the entire sequence
-	LIMIT = 50000000
-	sequence = [2 * i * i - 1 for i in range(LIMIT + 1)]
-	sequence[0] = sequence[1] = -1
-	
-	# Divide out factors using a kind of sieve
-	ans = 0
-	for (i, term) in enumerate(sequence):
-		if i < 2:
-			continue
-		# We can assert at this point that term == 1 or isPrime(term)
-		if term == 2 * i * i - 1:
-			ans += 1
-		
-		# We can skip if term > LIMIT * 2 because in the second loop would do nothing. This also avoids overflows because term is a long.
-		# The loop does nothing because: i <= LIMIT < p/2; p/2 - i > 0; p - i > p/2; 2(p - i) > p. Clearly 2(p - i) < 2p.
-		# Hence 2(p - i) % p = p - 2i. Next, the start index j = i + (p - 2i) = p - i > p/2 >= LIMIT, therefore j > LIMIT.
-		if 1 < term <= LIMIT * 2:
-			# Visit specific later entries in the sequence and divide out all factors of p
-			p = term
-			# j starts at the smallest number such that j > i and j = +i mod p
-			for j in range(i + p, LIMIT + 1, p):
-				while True:
-					sequence[j] //= p
-					if sequence[j] % p != 0:
-						break
-			# j starts at the smallest number such that j > i and j = -i mod p
-			for j in range(i + (p - i) * 2 % p, LIMIT + 1, p):
-				while True:
-					sequence[j] //= p
-					if sequence[j] % p != 0:
-						break
-	return str(ans)
+    # Produce the entire sequence
+    LIMIT = 50000000
+    sequence = [2 * i * i - 1 for i in range(LIMIT + 1)]
+    sequence[0] = sequence[1] = -1
+
+    # Divide out factors using a kind of sieve
+    ans = 0
+    for (i, term) in enumerate(sequence):
+        if i < 2:
+            continue
+        # We can assert at this point that term == 1 or isPrime(term)
+        if term == 2 * i * i - 1:
+            ans += 1
+
+        # We can skip if term > LIMIT * 2 because in the second loop would do nothing. This also avoids overflows because term is a long.
+        # The loop does nothing because: i <= LIMIT < p/2; p/2 - i > 0; p - i > p/2; 2(p - i) > p. Clearly 2(p - i) < 2p.
+        # Hence 2(p - i) % p = p - 2i. Next, the start index j = i + (p - 2i) = p - i > p/2 >= LIMIT, therefore j > LIMIT.
+        if 1 < term <= LIMIT * 2:
+            # Visit specific later entries in the sequence and divide out all factors of p
+            p = term
+            # j starts at the smallest number such that j > i and j = +i mod p
+            for j in range(i + p, LIMIT + 1, p):
+                while True:
+                    sequence[j] //= p
+                    if sequence[j] % p != 0:
+                        break
+            # j starts at the smallest number such that j > i and j = -i mod p
+            for j in range(i + (p - i) * 2 % p, LIMIT + 1, p):
+                while True:
+                    sequence[j] //= p
+                    if sequence[j] % p != 0:
+                        break
+    return str(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

@@ -10,10 +10,10 @@ import eulerlib
 
 
 def compute():
-	n = eulerlib.factorial(100)
-	ans = sum(map(int, str(n)))
-	return str(ans)
+    n = eulerlib.factorial(100)
+    ans = sum(map(int, str(n)))
+    return str(ans)
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

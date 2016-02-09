@@ -10,20 +10,20 @@ import eulerlib
 
 
 def compute():
-	n = 600851475143
-	while True:
-		k = smallest_prime_factor(n)
-		if k == n:
-			return str(n)
-		n //= k
+    n = 600851475143
+    while True:
+        k = smallest_prime_factor(n)
+        if k == n:
+            return str(n)
+        n //= k
 
 
 def smallest_prime_factor(x):
-	for i in range(2, eulerlib.sqrt(x) + 1):
-		if x % i == 0:
-			return i
-	return x
+    for i in range(2, eulerlib.sqrt(x) + 1):
+        if x % i == 0:
+            return i
+    return x
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())

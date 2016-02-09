@@ -28,33 +28,33 @@
 # the number of non-strict 22-digit numbers that start with 000, leaving only 22-digit numbers
 # that start with 001 to 009, which are exactly the 20-digit numbers that start with 1 to 9.
 def compute():
-	BASE = 10
-	DIGITS = 20
-	CONSECUTIVE = 3
-	MAX_SUM = 9
-	
-	# Dynamic programming array, with base case (ways for 0-digit numbers)
-	innerlen = BASE ** CONSECUTIVE
-	ways = [[1] + [0] * (innerlen - 1)]
-	
-	# Compute DP table
-	for digits in range(1, DIGITS + CONSECUTIVE + 1):
-		newrow = []
-		for prefix in range(innerlen):
-			sum = 0
-			if digit_sum(prefix) <= MAX_SUM:
-				for nextdigit in range(BASE):
-					sum += ways[digits - 1][prefix % (BASE ** (CONSECUTIVE - 1)) * BASE + nextdigit]
-			newrow.append(sum)
-		ways.append(newrow)
-	
-	ans = ways[-1][0] - ways[-2][0]
-	return str(ans)
+    BASE = 10
+    DIGITS = 20
+    CONSECUTIVE = 3
+    MAX_SUM = 9
+
+    # Dynamic programming array, with base case (ways for 0-digit numbers)
+    innerlen = BASE ** CONSECUTIVE
+    ways = [[1] + [0] * (innerlen - 1)]
+
+    # Compute DP table
+    for digits in range(1, DIGITS + CONSECUTIVE + 1):
+        newrow = []
+        for prefix in range(innerlen):
+            sum = 0
+            if digit_sum(prefix) <= MAX_SUM:
+                for nextdigit in range(BASE):
+                    sum += ways[digits - 1][prefix % (BASE ** (CONSECUTIVE - 1)) * BASE + nextdigit]
+            newrow.append(sum)
+        ways.append(newrow)
+
+    ans = ways[-1][0] - ways[-2][0]
+    return str(ans)
 
 
 def digit_sum(n):
-	return sum(int(c) for c in str(n))
+    return sum(int(c) for c in str(n))
 
 
 if __name__ == "__main__":
-	print(compute())
+    print(compute())
