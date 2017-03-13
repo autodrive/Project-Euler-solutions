@@ -1,6 +1,6 @@
 # 
 # Solution to Project Euler problem 162
-# by Project Nayuki
+# Copyright (c) Project Nayuki. All rights reserved.
 # 
 # https://www.nayuki.io/page/project-euler-solutions
 # https://github.com/nayuki/Project-Euler-solutions
@@ -41,11 +41,9 @@
 #     = (15*16^(n-1) - 13^n) - (15*16^(n-1) - 15^n) - (15*16^(n-1) - 14*15^(n-1)) - (15*16^(n-1) - 14*15^(n-1)) + (15*16^(n-1) - 29*15^(n-1) + 14^n) + (15*16^(n-1) - 29*15^(n-1) + 14^n) + (15*16^(n-1) - 28*15^(n-1) + 13*14^(n-1))
 #     = 15*16^(n-1) - 43*15^(n-1) + 41*14^(n-1) - 13^n.
 def compute():
-    ans = 0
-    for n in range(1, 17):
-        ans += 15 * 16 ** (n - 1) - 43 * 15 ** (n - 1) + 41 * 14 ** (n - 1) - 13 ** n
-    return hex(ans)[2:].rstrip("L").upper()  # The rstrip is for Python 2
+	ans = sum((15 * 16**(n-1) - 43 * 15**(n-1) + 41 * 14**(n-1) - 13**n) for n in range(1, 17))
+	return "{:X}".format(ans)
 
 
 if __name__ == "__main__":
-    print(compute())
+	print(compute())

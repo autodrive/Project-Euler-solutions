@@ -1,12 +1,12 @@
 {- 
  - Solution to Project Euler problem 38
- - by Project Nayuki
+ - Copyright (c) Project Nayuki. All rights reserved.
  - 
  - https://www.nayuki.io/page/project-euler-solutions
  - https://github.com/nayuki/Project-Euler-solutions
  -}
 
-import List (sort)
+import Data.List (sort)
 
 
 main = putStrLn (show ans)

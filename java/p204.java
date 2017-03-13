@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 204
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -27,7 +27,6 @@ public final class p204 implements EulerSolution {
 	private int count(int primeIndex, long product) {
 		if (primeIndex == primes.length)
 			return product <= LIMIT ? 1 : 0;
-		
 		else {
 			int count = 0;
 			while (product <= LIMIT) {

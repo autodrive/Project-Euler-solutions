@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 451
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -50,7 +50,7 @@ public final class p451 implements EulerSolution {
 		if (smallestPrimeFactor[n] == n)  // n is prime
 			return new int[]{1, n - 1};
 		else {
-			List<Integer> temp = new ArrayList<Integer>();
+			List<Integer> temp = new ArrayList<>();
 			int p = smallestPrimeFactor[n];
 			int[] sols = solutions.get(n / p);
 			for (int i = 0, inc = n / p; i < n; i += inc) {

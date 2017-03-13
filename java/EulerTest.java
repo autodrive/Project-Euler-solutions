@@ -1,6 +1,6 @@
 /* 
  * Test suite for Project Euler all Java solutions
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -142,6 +142,7 @@ public final class EulerTest {
 	@Test public void testP133() { assertEquals("453647705"          , new p133().run()); }
 	@Test public void testP134() { assertEquals("18613426663617118"  , new p134().run()); }
 	@Test public void testP135() { assertEquals("4989"               , new p135().run()); }
+	@Test public void testP139() { assertEquals("10057761"           , new p139().run()); }
 	@Test public void testP142() { assertEquals("1006193"            , new p142().run()); }
 	@Test public void testP145() { assertEquals("608720"             , new p145().run()); }
 	@Test public void testP146() { assertEquals("676333270"          , new p146().run()); }
@@ -171,6 +172,7 @@ public final class EulerTest {
 	@Test public void testP206() { assertEquals("1389019170"         , new p206().run()); }
 	@Test public void testP211() { assertEquals("1922364685"         , new p211().run()); }
 	@Test public void testP214() { assertEquals("1677366278943"      , new p214().run()); }
+	@Test public void testP215() { assertEquals("806844323190414"    , new p215().run()); }
 	@Test public void testP216() { assertEquals("5437849"            , new p216().run()); }
 	@Test public void testP218() { assertEquals("0"                  , new p218().run()); }
 	@Test public void testP222() { assertEquals("1590933"            , new p222().run()); }
@@ -189,6 +191,8 @@ public final class EulerTest {
 	@Test public void testP315() { assertEquals("13625242"           , new p315().run()); }
 	@Test public void testP323() { assertEquals("6.3551758451"       , new p323().run()); }
 	@Test public void testP345() { assertEquals("13938"              , new p345().run()); }
+	@Test public void testP346() { assertEquals("336108797689259276" , new p346().run()); }
+	@Test public void testP347() { assertEquals("11109800204052"     , new p347().run()); }
 	@Test public void testP357() { assertEquals("1739023853137"      , new p357().run()); }
 	@Test public void testP381() { assertEquals("139602943319822"    , new p381().run()); }
 	@Test public void testP387() { assertEquals("696067597313468"    , new p387().run()); }
@@ -200,5 +204,8 @@ public final class EulerTest {
 	@Test public void testP431() { assertEquals("23.386029052"       , new p431().run()); }
 	@Test public void testP433() { assertEquals("326624372659664"    , new p433().run()); }
 	@Test public void testP451() { assertEquals("153651073760956"    , new p451().run()); }
+	@Test public void testP493() { assertEquals("6.818741802"        , new p493().run()); }
+	@Test public void testP518() { assertEquals("100315739184392"    , new p518().run()); }
+	@Test public void testP549() { assertEquals("476001479068717"    , new p549().run()); }
 	
 }

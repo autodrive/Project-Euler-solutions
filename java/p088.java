@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 88
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -45,7 +45,7 @@ public final class p088 implements EulerSolution {
 			factorize(i, i, i, 0, 0);
 		
 		// Eliminate duplicates and compute sum
-		Set<Integer> items = new HashSet<Integer>();
+		Set<Integer> items = new HashSet<>();
 		for (int i = 2; i < minSumProduct.length; i++)
 			items.add(minSumProduct[i]);
 		int sum = 0;

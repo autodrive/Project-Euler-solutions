@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 22
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -16,20 +16,24 @@ public final class p022 implements EulerSolution {
 	}
 	
 	
+	/* 
+	 * We apply straightforward algorithms to sort the names, sum the letter values, and multiply by the position.
+	 */
+	
 	public String run() {
 		Arrays.sort(names);
-		int sum = 0;
+		long sum = 0;
 		for (int i = 0; i < names.length; i++) {
 			int value = 0;
 			for (int j = 0; j < names[i].length(); j++)
 				value += names[i].charAt(j) - 'A' + 1;
 			sum += value * (i + 1);
 		}
-		return Integer.toString(sum);
+		return Long.toString(sum);
 	}
 	
 	
-	private String[] names = {
+	private String[] names = {  // 10 strings per line, except final line. Mutable array
 		"MARY", "PATRICIA", "LINDA", "BARBARA", "ELIZABETH", "JENNIFER", "MARIA", "SUSAN", "MARGARET", "DOROTHY",
 		"LISA", "NANCY", "KAREN", "BETTY", "HELEN", "SANDRA", "DONNA", "CAROL", "RUTH", "SHARON",
 		"MICHELLE", "LAURA", "SARAH", "KIMBERLY", "DEBORAH", "JESSICA", "SHIRLEY", "CYNTHIA", "ANGELA", "MELISSA",

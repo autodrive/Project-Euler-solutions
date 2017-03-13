@@ -1,6 +1,6 @@
 # 
 # Solution to Project Euler problem 63
-# by Project Nayuki
+# Copyright (c) Project Nayuki. All rights reserved.
 # 
 # https://www.nayuki.io/page/project-euler-solutions
 # https://github.com/nayuki/Project-Euler-solutions
@@ -22,13 +22,12 @@
 # 
 # We handle the rest of the testing by brute force.
 def compute():
-    ans = 0
-    for i in range(1, 10):
-        for j in range(1, 22):
-            if len(str(i ** j)) == j:
-                ans += 1
-    return str(ans)
+	ans = sum(1
+		for i in range(1, 10)
+		for j in range(1, 22)
+		if len(str(i**j)) == j)
+	return str(ans)
 
 
 if __name__ == "__main__":
-    print(compute())
+	print(compute())

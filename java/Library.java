@@ -1,6 +1,6 @@
 /* 
  * Shared code for solutions to Project Euler problems
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -298,34 +298,10 @@ final class Library {
 		for (int i = 2; i <= n; i++) {
 			if (totients[i] == i) {  // i is prime
 				for (int j = i; j <= n; j += i)
-					totients[j] = totients[j] / i * (i - 1);
+					totients[j] -= totients[j] / i;
 			}
 		}
 		return totients;
-	}
-	
-	
-	// Returns the same result as x.multiply(y), but is faster for large integers.
-	public static BigInteger multiply(BigInteger x, BigInteger y) {
-		final int CUTOFF = 1536;
-		if (x.bitLength() <= CUTOFF || y.bitLength() <= CUTOFF) {  // Base case
-			return x.multiply(y);
-			
-		} else {  // Karatsuba fast multiplication
-			int n = Math.max(x.bitLength(), y.bitLength());
-			int half = (n + 32) / 64 * 32;
-			BigInteger mask = BigInteger.ONE.shiftLeft(half).subtract(BigInteger.ONE);
-			BigInteger xlow = x.and(mask);
-			BigInteger ylow = y.and(mask);
-			BigInteger xhigh = x.shiftRight(half);
-			BigInteger yhigh = y.shiftRight(half);
-			
-			BigInteger a = multiply(xhigh, yhigh);
-			BigInteger b = multiply(xlow.add(xhigh), ylow.add(yhigh));
-			BigInteger c = multiply(xlow, ylow);
-			BigInteger d = b.subtract(a).subtract(c);
-			return a.shiftLeft(half).add(d).shiftLeft(half).add(c);
-		}
 	}
 	
 	

@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 67
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -14,10 +14,24 @@ public final class p067 implements EulerSolution {
 	}
 	
 	
+	/* 
+	 * We create a new blank triangle with the same dimensions as the original big triangle.
+	 * For each cell of the big triangle, we consider the sub-triangle whose top is at this cell,
+	 * calculate the maximum path sum when starting from this cell, and store the result
+	 * in the corresponding cell of the blank triangle.
+	 * 
+	 * If we start at a particular cell, what is the maximum path total? If the cell is at the
+	 * bottom of the big triangle, then it is simply the cell's value. Otherwise the answer is
+	 * the cell's value plus either {the maximum path total of the cell down and to the left}
+	 * or {the maximum path total of the cell down and to the right}, whichever is greater.
+	 * By computing the blank triangle's values from bottom up, the dependent values are always
+	 * computed before they are utilized. This technique is known as dynamic programming.
+	 */
+	
 	public String run() {
 		for (int i = triangle.length - 2; i >= 0; i--) {
 			for (int j = 0; j < triangle[i].length; j++)
-				triangle[i][j] += Math.max(triangle[i + 1][j], triangle[i + 1][j + 1]);  // Dynamic programming
+				triangle[i][j] += Math.max(triangle[i + 1][j], triangle[i + 1][j + 1]);
 		}
 		return Integer.toString(triangle[0][0]);
 	}

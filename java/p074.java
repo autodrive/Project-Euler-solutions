@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 74
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -30,12 +30,12 @@ public final class p074 implements EulerSolution {
 	
 	
 	private static int getChainLength(int n) {
-		Set<Integer> seen = new HashSet<Integer>();
-		do {
-			seen.add(n);
+		Set<Integer> seen = new HashSet<>();
+		while (true) {
+			if (!seen.add(n))
+				return seen.size();
 			n = factorialize(n);
-		} while (!seen.contains(n));
-		return seen.size();
+		}
 	}
 	
 	

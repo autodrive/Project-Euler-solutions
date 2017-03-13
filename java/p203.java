@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 203
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -20,10 +20,10 @@ public final class p203 implements EulerSolution {
 	
 	public String run() {
 		// Collect unique numbers in Pascal's triangle
-		Set<Long> numbers = new HashSet<Long>();
+		Set<Long> numbers = new HashSet<>();
 		long max = 0;
 		for (int n = 0; n <= 50; n++) {
-			for(int k = 0; k <= n; k++) {
+			for (int k = 0; k <= n; k++) {
 				BigInteger x = Library.binomial(n, k);
 				if (x.bitLength() >= 64)
 					throw new AssertionError("Number too large to handle");

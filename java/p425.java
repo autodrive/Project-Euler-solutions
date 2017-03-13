@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 425
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -41,7 +41,7 @@ public final class p425 implements EulerSolution {
 		Arrays.fill(pathMax, Integer.MAX_VALUE);
 		
 		// Process paths in increasing order of maximum number
-		Queue<IntPair> queue = new PriorityQueue<IntPair>();
+		Queue<IntPair> queue = new PriorityQueue<>();
 		queue.add(new IntPair(2, 2));
 		while (!queue.isEmpty()) {
 			IntPair item = queue.remove();
@@ -126,12 +126,7 @@ public final class p425 implements EulerSolution {
 		
 		
 		public int compareTo(IntPair other) {
-			if (a < other.a)
-				return -1;
-			else if (a > other.a)
-				return 1;
-			else
-				return 0;
+			return Integer.compare(a, other.a);
 		}
 		
 	}

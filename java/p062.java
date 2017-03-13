@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 62
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -21,8 +21,8 @@ public final class p062 implements EulerSolution {
 	
 	public String run() {
 		int numDigits = 0;
-		Map<String,Integer> lowest = new HashMap<String,Integer>();
-		Map<String,Integer> counts = new HashMap<String,Integer>();
+		Map<String,Integer> lowest = new HashMap<>();
+		Map<String,Integer> counts = new HashMap<>();
 		for (int i = 0; ; i++) {
 			String numClass = getCubeNumberClass(i);
 			

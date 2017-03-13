@@ -1,32 +1,19 @@
 # 
 # Solution to Project Euler problem 69
-# by Project Nayuki
+# Copyright (c) Project Nayuki. All rights reserved.
 # 
 # https://www.nayuki.io/page/project-euler-solutions
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
-import sys
-
-if sys.version_info.major == 2:
-    range = xrange
+import eulerlib, fractions
 
 
 def compute():
-    totients = list(range(1000001))
-    for i in range(2, len(totients)):
-        if totients[i] == i:  # i is prime
-            for j in range(i, len(totients), i):
-                totients[j] = totients[j] // i * (i - 1)
-
-    maxnumer = 0
-    maxdenom = 1
-    for (i, tot) in enumerate(totients[2:], 2):
-        if i * maxdenom > maxnumer * tot:
-            maxnumer = i
-            maxdenom = totients[i]
-    return str(maxnumer)
+	totients = eulerlib.list_totients(10**6)
+	ans = max(range(2, len(totients)), key=(lambda i: fractions.Fraction(i, totients[i])))
+	return str(ans)
 
 
 if __name__ == "__main__":
-    print(compute())
+	print(compute())

@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 280
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -65,7 +65,7 @@ public final class p280 implements EulerSolution {
 		
 		
 		public static Set<State> listAllStates() {
-			HashSet<State> result = new HashSet<State>();
+			HashSet<State> result = new HashSet<>();
 			for (int i = 0; i < (1 << 11); i++) {
 				if (Integer.bitCount(i) != 5)
 					continue;
@@ -111,7 +111,7 @@ public final class p280 implements EulerSolution {
 		
 		
 		public Set<State> getSuccessors() {
-			HashSet<State> result = new HashSet<State>();
+			HashSet<State> result = new HashSet<>();
 			if (!isDone) {
 				tryAddSuccessor(-1, 0, result);
 				tryAddSuccessor(+1, 0, result);

@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 124
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -21,10 +21,10 @@ public final class p124 implements EulerSolution {
 	public String run() {
 		// Modification of the Sieve of Eratosthenes
 		int[] rads = new int[LIMIT + 1];
-		Arrays.fill(rads, 1);
-		for (int i = 2; i <= LIMIT; i++) {
+		Arrays.fill(rads, 1, rads.length, 1);
+		for (int i = 2; i < rads.length; i++) {
 			if (rads[i] == 1) {
-				for (int j = i; j <= LIMIT; j += i)
+				for (int j = i; j < rads.length; j += i)
 					rads[j] *= i;
 			}
 		}
@@ -51,11 +51,10 @@ public final class p124 implements EulerSolution {
 		
 		
 		public int compareTo(IntPair other) {
-			if      (a < other.a) return -1;
-			else if (a > other.a) return +1;
-			else if (b < other.b) return -1;
-			else if (b > other.b) return +1;
-			else                  return  0;
+			if (a != other.a)
+				return Integer.compare(a, other.a);
+			else
+				return Integer.compare(b, other.b);
 		}
 		
 	}

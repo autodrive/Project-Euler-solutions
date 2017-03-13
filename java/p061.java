@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 61
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -27,7 +27,7 @@ public final class p061 implements EulerSolution {
 		numbers = new Set[9][100];
 		for (int i = 0; i < numbers.length; i++) {
 			for (int j = 0; j < numbers[i].length; j++)
-				numbers[i][j] = new HashSet<Integer>();
+				numbers[i][j] = new HashSet<>();
 		}
 		for (int sides = 3; sides <= 8; sides++) {
 			for (int n = 1; ; n++) {

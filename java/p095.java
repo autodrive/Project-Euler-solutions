@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 95
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -31,7 +31,7 @@ public final class p095 implements EulerSolution {
 		int maxChainLen = 0;
 		int minChainElem = -1;
 		for (int i = 0; i <= LIMIT; i++) {
-			Set<Integer> visited = new HashSet<Integer>();
+			Set<Integer> visited = new HashSet<>();
 			for (int count = 1, cur = i; ; count++) {
 				// 'count' is the length of the this amicable chain
 				visited.add(cur);

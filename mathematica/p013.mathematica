@@ -1,12 +1,13 @@
 (* 
  * Solution to Project Euler problem 13
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
  *)
 
 
+(* We do a straightforward sum thanks to Mathematica's built-in arbitrary precision integer type. *)
 s =
   37107287533902102798797998220837590246510135740250 +
   46376937677490009712648124896970078050417018260538 +

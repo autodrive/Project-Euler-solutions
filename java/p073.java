@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 73
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -28,7 +28,7 @@ public final class p073 implements EulerSolution {
 	}
 	
 	
-	// Counts the number of reduce fractions n/d such that leftN/leftD < n/d < rightN/rightD and d <= 12000.
+	// Counts the number of reduced fractions n/d such that leftN/leftD < n/d < rightN/rightD and d <= 12000.
 	// leftN/leftD and rightN/rightD must be adjacent in the Stern-Brocot tree at some point in the generation process.
 	private static int sternBrocotCount(int leftN, int leftD, int rightN, int rightD) {
 		int n = leftN + rightN;

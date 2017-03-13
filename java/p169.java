@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 169
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -36,7 +36,7 @@ public final class p169 implements EulerSolution {
 	 */
 	
 	// Memoization
-	private Map<List<BigInteger>,BigInteger> ways = new HashMap<List<BigInteger>,BigInteger>();
+	private Map<List<BigInteger>,BigInteger> ways = new HashMap<>();
 	
 	private BigInteger countWays(BigInteger number, int exponent, int repetitions) {
 		List<BigInteger> key = Arrays.asList(number, BigInteger.valueOf(exponent), BigInteger.valueOf(repetitions));

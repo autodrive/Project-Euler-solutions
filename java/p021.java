@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 21
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -13,6 +13,11 @@ public final class p021 implements EulerSolution {
 		System.out.println(new p021().run());
 	}
 	
+	
+	/* 
+	 * We find the sum of proper divisors of a number by brute force,
+	 * and apply the definition of an amicable number straightforwardly.
+	 */
 	
 	public String run() {
 		int sum = 0;

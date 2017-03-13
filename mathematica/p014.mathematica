@@ -1,11 +1,16 @@
 (* 
  * Solution to Project Euler problem 14
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
  *)
 
+
+(* 
+ * We compute the Collatz chain length for every integer in the range according to the iteration rule.
+ * Also, we cache the Collatz value for small integer arguments to speed up the computation.
+ *)
 
 Collatz[0] := 0
 Collatz[1] := 1

@@ -1,12 +1,13 @@
 # 
 # Solution to Project Euler problem 4
-# by Project Nayuki
+# Copyright (c) Project Nayuki. All rights reserved.
 # 
 # https://www.nayuki.io/page/project-euler-solutions
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
 
+# Computers are fast, so we can implement this solution directly without any clever math.
 def compute():
     ans = 0
     for i in range(100, 1000):

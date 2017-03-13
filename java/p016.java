@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 16
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -16,6 +16,9 @@ public final class p016 implements EulerSolution {
 	}
 	
 	
+	/* 
+	 * We implement this solution in a straightforward way with help from BigInteger.
+	 */
 	public String run() {
 		String temp = BigInteger.ONE.shiftLeft(1000).toString();
 		int sum = 0;

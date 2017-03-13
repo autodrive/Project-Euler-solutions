@@ -1,10 +1,12 @@
 /* 
  * Solution to Project Euler problem 127
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
  */
+
+import java.util.Arrays;
 
 
 public final class p127 implements EulerSolution {
@@ -14,40 +16,46 @@ public final class p127 implements EulerSolution {
 	}
 	
 	
+	/* 
+	 * A straightforward solution would look like this:
+	 *   for (int c = 2; c < LIMIT; c++) {
+	 *      for (int a = 1; a < c; a++) {
+	 *        int b = c - a;
+	 *        if (isAbcHit(a, b, c))
+	 *          ans += c;
+	 *      }
+	 *   }
+	 * 
+	 * Here are some observations that lead to optimizations:
+	 * - By Euclid's GCD algorithm, gcd(c,b) = gcd(a+b,b) = gcd(a,b) = gcd(a,a+b) = gcd(a,c).
+	 *   Hence gcd(a,b) = 1 if and only if gcd(a,c) = 1 and gcd(b,c) = 1.
+	 *   We only need to compute and check one of these three GCDs.
+	 * - Since {a, b, c} are mutually coprime, we have rad(a * b * c) = rad(a) * rad(b) * rad(c).
+	 * - For each integer n >= 2, we have 2 <= rad(n) <= n.
+	 * - Therefore, it is clear that rad(c) <= rad(a * b * c). If rad(c) = c, then no solution exists for this c.
+	 */
+	
 	private static final int LIMIT = 120000;
 	
 	public String run() {
-		int[] smallestPrimeFactor = Library.listSmallestPrimeFactors(LIMIT - 1);
-		
+		// Modification of the Sieve of Eratosthenes
 		int[] rads = new int[LIMIT];
-		for (int i = 1; i < rads.length; i++) {
-			int n = i;
-			int rad = 1;
-			while (n > 1) {
-				int p = smallestPrimeFactor[n];
-				do n /= p;
-				while (n % p == 0);
-				rad *= p;
+		Arrays.fill(rads, 1, rads.length, 1);
+		for (int i = 2; i < rads.length; i++) {
+			if (rads[i] == 1) {
+				for (int j = i; j < rads.length; j += i)
+					rads[j] *= i;
 			}
-			rads[i] = rad;
 		}
 		
-		/* 
-		 * Notes:
-		 * - gcd(a,b) = gcd(a,c) = gcd(b,c), so we only need to compute one of them.
-		 * - Since {a, b, c} are mutually coprime, rad(a * b * c) = rad(a) * rad(b) * rad(c).
-		 * - rad(a)*rad(b)*rad(c) < c implies rad(a)*rad(b)*rad(c) <= c-1 implies rad(a)*rad(b) <= floor((c-1)/rad(c)).
-		 */
 		long sum = 0;
 		for (int c = 2; c < LIMIT; c++) {
-			int thres = (c - 1) / rads[c];
-			for (int a = 1; ; a++) {
+			if (rads[c] == c)
+				continue;
+			for (int a = 1, end = (c - 1) / 2; a <= end; a++) {
 				int b = c - a;
-				if (b <= a)
-					break;
-				
-				// The first two conditions are just optional optimizations
-				if (rads[a] <= thres && rads[b] <= thres && (long)rads[a] * rads[b] <= thres && Library.gcd(a, b) == 1)
+				assert a < b;
+				if ((long)rads[a] * rads[b] * rads[c] < c && Library.gcd(a, b) == 1)
 					sum += c;
 			}
 		}

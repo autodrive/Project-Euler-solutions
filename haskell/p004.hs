@@ -1,12 +1,13 @@
 {- 
  - Solution to Project Euler problem 4
- - by Project Nayuki
+ - Copyright (c) Project Nayuki. All rights reserved.
  - 
  - https://www.nayuki.io/page/project-euler-solutions
  - https://github.com/nayuki/Project-Euler-solutions
  -}
 
 
+-- Computers are fast, so we can implement this solution directly without any clever math.
 main = putStrLn (show ans)
 ans = foldl1 max [a * b | a <- [100..999], b <- [100..999], isPalindrome (a * b)]
 

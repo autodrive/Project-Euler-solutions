@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 109
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -19,21 +19,21 @@ public final class p109 implements EulerSolution {
 	
 	
 	public String run() {
-		// Initialization
-		points = new ArrayList<Integer>();  // Orderless, but duplicates are important
+		// Both lists are orderless but duplicates are important; they are sort of like multisets
+		points = new ArrayList<>();
 		for (int i = 1; i <= 20; i++) {
-			points.add(i * 1);
-			points.add(i * 2);
-			points.add(i * 3);
+			for (int j = 1; j <= 3; j++)
+				points.add(i * j);
 		}
 		points.add(25);
 		points.add(50);
 		
-		doublePoints = new ArrayList<Integer>();  // Orderless, but duplicates are important
+		List<Integer> doublePoints = new ArrayList<>();  // Orderless
 		for (int i = 1; i <= 20; i++)
 			doublePoints.add(i * 2);
 		doublePoints.add(25 * 2);
 		
+		// Memoization array
 		ways = new int[3][101][points.size()];
 		for (int[][] x : ways) {
 			for (int[] y : x)
@@ -54,7 +54,6 @@ public final class p109 implements EulerSolution {
 	
 	
 	private List<Integer> points;
-	private List<Integer> doublePoints;
 	
 	private int[][][] ways;
 	

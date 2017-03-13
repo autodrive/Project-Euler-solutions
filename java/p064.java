@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 64
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -30,7 +30,7 @@ public final class p064 implements EulerSolution {
 	
 	// Returns the period of the continued fraction of sqrt(n)
 	private static int getSqrtContinuedFractionPeriod(int n) {
-		Map<QuadraticSurd,Integer> seen = new HashMap<QuadraticSurd,Integer>();
+		Map<QuadraticSurd,Integer> seen = new HashMap<>();
 		QuadraticSurd val = new QuadraticSurd(BigInteger.ZERO, BigInteger.ONE, BigInteger.ONE, BigInteger.valueOf(n));
 		do {
 			seen.put(val, seen.size());

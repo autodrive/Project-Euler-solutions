@@ -1,6 +1,6 @@
 /* 
  * Solution to Project Euler problem 105
- * by Project Nayuki
+ * Copyright (c) Project Nayuki. All rights reserved.
  * 
  * https://www.nayuki.io/page/project-euler-solutions
  * https://github.com/nayuki/Project-Euler-solutions
@@ -31,7 +31,7 @@ public final class p105 implements EulerSolution {
 	
 	
 	private static boolean isSpecialSumSet(int[] set) {
-		Set<Integer> sumsSeen = new HashSet<Integer>();
+		Set<Integer> sumsSeen = new HashSet<>();
 		int[] minSum = new int[set.length + 1];
 		int[] maxSum = new int[set.length + 1];
 		Arrays.fill(minSum, Integer.MAX_VALUE);

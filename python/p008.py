@@ -1,12 +1,13 @@
 # 
 # Solution to Project Euler problem 8
-# by Project Nayuki
+# Copyright (c) Project Nayuki. All rights reserved.
 # 
 # https://www.nayuki.io/page/project-euler-solutions
 # https://github.com/nayuki/Project-Euler-solutions
 # 
 
 
+# We implement a straightforward algorithm that examines every substring of length 13.
 def compute():
     ans = max(digit_product(NUMBER[i: i + ADJACENT]) for i in range(len(NUMBER) - ADJACENT + 1))
     return str(ans)
